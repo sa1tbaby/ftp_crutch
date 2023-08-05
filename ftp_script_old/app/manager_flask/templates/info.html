@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Listing_os</th>
+                <th>Listing_ftp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>File_name</th>
+                                <th>Size</th>
+                                <th>Control_check</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% if listing_os.empty %}
+                            <tr>
+                                <th>None</th>
+                                <th>None</th>
+                                <th>None</th>
+                            </tr>
+                        {% else %}
+                            {% for item in listing_os.values %}
+                            <tr>
+                                <th>{{ item[0] }}</th>
+                                <th>{{ item[1] }}</th>
+                                <th>{{ item[2] }}</th>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </th>
+                <th>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>File_name</th>
+                                <th>Size</th>
+                                <th>Control_check</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% if listing_ftp.empty %}
+                            <tr>
+                                <th>None</th>
+                                <th>None</th>
+                                <th>None</th>
+                            </tr>
+                        {% else %}
+                            {% for item in listing_ftp.values %}
+                            <tr>
+                                <th>{{ item[0] }}</th>
+                                <th>{{ item[1] }}</th>
+                                <th>{{ item[2] }}</th>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
